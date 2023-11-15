@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
-/* eslint-disable */ 
+/* eslint-disable */
 const routes = [
   {
     path: "/",
@@ -10,16 +10,26 @@ const routes = [
   {
     path: "/Racket",
     name: "RacketView",
-    
-    component: () =>
-      import("../views/RacketView.vue"),
+
+    component: () => import("../views/RacketView.vue"),
   },
   {
     path: "/Shuttlecock",
     name: "ShuttlecockView",
-    
-    component: () =>
-      import("../views/ShuttlecockView.vue"),
+
+    component: () => import("../views/ShuttlecockView.vue"),
+  },
+  {
+    path: "/addProduct",
+    name: "AddproductView",
+
+    component: () => import("../views/AddProduct.vue"),
+  },
+  {
+    path: "/deleteProduct",
+    name: "DeleteproductView",
+
+    component: () => import("../views/DeleteProduct.vue"),
   },
 ];
 

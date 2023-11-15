@@ -1,7 +1,6 @@
-/* eslint-disable */
 <template>
   <div class="home">
-    <img alt="Sport logo" src="../assets/logo.png" />
+    <img alt="Sport logo" src="@/assets/logo.png" />
     <h1>Welcome to our Sports Equipment Showcase!</h1>
 
     <p>
@@ -24,13 +23,14 @@
 }
 
 h1 {
-  color: #3366cc; /* Change the color to your preference */
-  font-size: 30px;
+  color: #3366cc;
+  font-size: 36px;
+  margin-bottom: 20px;
 }
 
 p {
-  font-size: 16px;
-  line-height: 1.5;
-  padding: 100px;
+  font-size: 18px;
+  line-height: 1.6;
+  padding: 20px;
 }
 </style>

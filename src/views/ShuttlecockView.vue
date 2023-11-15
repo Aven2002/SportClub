@@ -1,26 +1,24 @@
 <template>
   <div class="shuttlecock">
     <h1>{{ pageTitle }}</h1>
-    <button @click="addMessage" class="add-product-button">ADD</button>
-    <button @click="editMessage" class="add-product-button">EDIT</button>
-    <button @click="deleteMessage" class="add-product-button">DELETE</button>
-    <div v-for="product in products" :key="product.id" class="product-card">
-      <img
-        v-if="product.thumbnail"
-        :src="product.thumbnail"
-        :alt="product.title"
-        class="product-image"
-      />
+    <router-link to="./AddProduct" class="action-button">ADD</router-link>
+    <router-link to="./DeleteProduct" class="action-button">DELETE</router-link>
+    <button @click="editMessage" class="action-button">EDIT</button>
 
-      <div class="product-details">
+    <!-- Display product list with some styling -->
+    <div class="product-list">
+      <div v-for="product in products" :key="product.id" class="product-item">
+        <img
+          v-if="product.thumbnail"
+          :src="product.thumbnail"
+          :alt="product.title"
+          class="product-image"
+        />
         <h2>{{ product.title }}</h2>
-        <p class="product-description">{{ product.description }}</p>
-        <p class="product-price">Price: ${{ product.price }}</p>
-        <p class="product-rating">Rating: {{ product.rating }}</p>
-        <p class="product-stock">Stock: {{ product.stock }}</p>
+        <p>{{ product.description }}</p>
+        <span class="product-price">${{ product.price.toFixed(2) }}</span>
+        <!-- Add more details or customize as needed -->
       </div>
-
-      <hr />
     </div>
   </div>
 </template>
@@ -36,14 +34,8 @@ export default {
     };
   },
   methods: {
-    addMessage() {
-      alert("Add btn clicked !");
-    },
     editMessage() {
       alert("Edit btn clicked!");
-    },
-    deleteMessage() {
-      alert("Delete btn clicked!");
     },
   },
   created() {
@@ -62,54 +54,44 @@ export default {
 <style scoped>
 .shuttlecock {
   font-family: "Arial", sans-serif;
-  font-size: 30px;
   max-width: 800px;
   margin: auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.product-card {
+h1 {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.action-button {
+  padding: 10px;
+  margin-right: 10px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.product-list {
+  margin-top: 20px;
+}
+
+.product-item {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
   margin-bottom: 10px;
 }
 
-.product-image {
-  max-width: 200px;
-  max-height: 200px;
-  margin-right: 20px;
-}
-
-.product-details {
-  display: flex;
-  flex-direction: column;
-  margin: 15px; /* Adjusted margin */
-}
-
-.product-description {
-  color: #333;
-  margin: 0px; /* Adjusted margin */
-}
-
 .product-price {
-  color: #007bff;
-  margin: 0; /* Adjusted margin */
-}
-
-.product-rating {
-  color: #28a745;
-  margin: 0; /* Adjusted margin */
-}
-
-.product-stock {
-  color: #dc3545;
-  margin: 0; /* Adjusted margin */
-}
-
-.add-product-button {
-  font-size: 16px;
-  padding: 10px;
-  background-color: #696969;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  margin: 20px;
+  font-weight: bold;
+  color: #4caf50;
 }
 </style>
